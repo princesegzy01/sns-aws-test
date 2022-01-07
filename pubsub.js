@@ -14,7 +14,7 @@ AWS.config.update({region: 'eu-west-2'});
 const params = {
   TopicArn : process.env.ARN,
   Protocol: 'http',
-  Endpoint : 'http://localhost:4500/data'
+  Endpoint : 'https://sns-pub-sub.herokuapp.com/events'
 
 }
 
@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.post('/data', (req, res) => {
+app.post('/events', (req, res) => {
     res.send(req.body)
   }) 
 
