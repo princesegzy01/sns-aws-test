@@ -22,8 +22,10 @@ const sns = new AWS.SNS({apiVersion: '2010-03-31'});
 
 sns.subscribe(params, (err, data) => {
     if (err) {
+        console.log("<<<<<<<<<<<<<<<<<<<<< Error")
         console.log(err);
     } else {
+        console.log(">>>>>>>>>>>>>>>>>> Success")
         console.log(data);
         // console.send(data);
     }
@@ -38,7 +40,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/events', (req, res) => {
-    res.send(req.body)
+    console.log(req.body)
+    res.send("This is good")
   }) 
 
 app.listen(port, () => {
