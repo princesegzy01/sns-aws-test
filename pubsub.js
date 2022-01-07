@@ -43,8 +43,8 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.post('/events', (request, res) => {
-    console.log(request)
+app.post('/events', (req, res) => {
+    console.log(req.headers)
     res.send("This is good")
   }) 
 
