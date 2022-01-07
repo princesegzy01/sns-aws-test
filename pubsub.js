@@ -43,7 +43,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.post('/events', (eq, res) => {
+app.post('/events', (req, res) => {
     
     if(req.headers['x-amz-sns-message-type'] == 'SubscriptionConfirmation'){
         console.log(req.headers)
