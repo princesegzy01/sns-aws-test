@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/events', (request, res) => {
-    console.log(request.body)
+    console.log(request)
     res.send("This is good")
   }) 
 
