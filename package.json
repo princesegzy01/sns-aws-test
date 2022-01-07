@@ -5,7 +5,7 @@
   "main": "pubsub.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node pubsub.js"
+    "start": "node pubsub.js"
   },
   "keywords": [],
   "author": "",
