@@ -3,7 +3,16 @@ const express = require('express')
 const app = express()
 var bodyParser = require('body-parser')
 
-app.use(bodyParser.json())
+app.use(function(req, res, next) {
+    if (req.get('x-amz-sns-message-type')) {
+        req.headers['content-type'] = 'application/json';
+    }
+    next();
+});
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: false }));
+
+// app.use(bodyParser.json())
 
 // const port = 4500
 const port = process.env.PORT || 4500;
@@ -44,11 +53,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/events', (req, res) => {
-    if (req.get('x-amz-sns-message-type')) {
-        req.headers['content-type'] = 'application/json';
-    }
 
-    
     if(req.headers['x-amz-sns-message-type'] == 'SubscriptionConfirmation'){
         console.log(req.headers)
         console.log("*************************")
