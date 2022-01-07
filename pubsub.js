@@ -25,7 +25,7 @@ sns.subscribe(params, (err, data) => {
         console.log(err);
     } else {
         console.log(data);
-        res.send(data);
+        // console.send(data);
     }
 });
 
