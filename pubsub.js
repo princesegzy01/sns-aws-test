@@ -43,8 +43,16 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.post('/events', (req, res) => {
-    console.log(req.headers)
+app.post('/events', (eq, res) => {
+    
+    if(req.headers['x-amz-sns-message-type'] == 'SubscriptionConfirmation'){
+        console.log(req.headers)
+        console.log("*************************")
+        console.log(req.body)
+    }
+
+    console.log(req.body)
+
     res.send("This is good")
   }) 
 
