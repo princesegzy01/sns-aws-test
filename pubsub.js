@@ -13,7 +13,7 @@ AWS.config.update({region: 'eu-west-2'});
 
 const params = {
   TopicArn : process.env.ARN,
-  Protocol: 'http',
+  Protocol: 'https',
   Endpoint : 'https://sns-pub-sub.herokuapp.com/events'
 
 }
