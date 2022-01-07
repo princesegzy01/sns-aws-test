@@ -1,7 +1,9 @@
 
 const express = require('express')
 const app = express()
-const port = 4500
+// const port = 4500
+const port = process.env.PORT || 8080;
+
 
 // Load the AWS SDK for Node.js
 var AWS = require('aws-sdk');
