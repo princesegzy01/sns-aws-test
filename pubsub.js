@@ -51,7 +51,7 @@ app.post('/events', (req, res) => {
         console.log(req.body)
     }
 
-    console.log(req.body)
+    console.log(req)
 
     res.send("This is good")
   }) 
