@@ -44,6 +44,10 @@ app.get('/', (req, res) => {
 })
 
 app.post('/events', (req, res) => {
+    if (req.get('x-amz-sns-message-type')) {
+        req.headers['content-type'] = 'application/json';
+    }
+
     
     if(req.headers['x-amz-sns-message-type'] == 'SubscriptionConfirmation'){
         console.log(req.headers)
@@ -51,7 +55,7 @@ app.post('/events', (req, res) => {
         console.log(req.body)
     }
 
-    console.log(req)
+    console.log(req.body)
 
     res.send("This is good")
   }) 
